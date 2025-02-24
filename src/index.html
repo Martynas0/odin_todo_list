@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My tasks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
 <body>
-    <h1>Hello world</h1>
+    <nav>
+        <h2><span class="mdi mdi-clipboard-text"></span>My projects</h2>
+        <div class="project-menu">
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
+        </div>
+        <button class="new-project-btn"><span class="mdi mdi-clipboard-plus"></span>New Project</button>
+    </nav>
+
+    <section>
+        <div class="current-project-title">
+            <h3><span class="mdi mdi-clipboard-check"></span>My project name.</h3>
+        </div>
+        <div class="current-project-container">
+            <div class="task-container">
+                <div class="task">This is a task</div>
+            </div>
+            <div class="add-task-container">
+                <button>Add task</button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

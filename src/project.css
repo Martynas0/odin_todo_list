@@ -1,0 +1,32 @@
+section {
+    display: grid;
+    grid-template-rows: 6rem 1fr;
+    row-gap: 35px;
+}
+
+div.current-project-title {
+    background-color: #282828;
+    box-shadow: 4px 3px 5px rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 10px 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.current-project-title > h3 {
+    font-size: 3rem;
+}
+
+h3 > span {
+    vertical-align: sub;
+    margin-right: 15px;
+    font-size: 4rem;
+}
+
+div.current-project-container {
+    background-color: #282828;
+    box-shadow: 4px 3px 5px rgb(0, 0, 0);
+    border-radius: 8px;
+}
