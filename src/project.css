@@ -26,7 +26,40 @@ h3 > span {
 }
 
 div.current-project-container {
+    padding: 25px;
     background-color: #282828;
     box-shadow: 4px 3px 5px rgb(0, 0, 0);
     border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+div.add-task-container {
+    display: flex;
+}
+
+div.add-task-container > button[type="button"] {
+    background-color: #3e3052;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 24px;
+    box-shadow: 1px 1px 5px black;
+}
+
+button[type="button"] > span {
+    font-size: 2rem;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+div.task-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }

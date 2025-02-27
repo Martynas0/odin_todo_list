@@ -1,0 +1,68 @@
+div.task {
+    background-color: #563232;
+    border-radius: 8px;
+    padding: 4px 16px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 2px 1px 5px black;
+    
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: min-content min-content;
+    align-items: center;
+}
+
+.task > div.task-desc {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 15px;
+    opacity: 0.9;
+}
+
+.task > div.task-desc-show {
+    display: block;
+}
+
+div.task > p:first-child {
+    margin-right: 15px;
+}
+
+div.task > span {
+    font-size: 2.5rem;
+}
+
+div.task span.mdi-delete {
+    justify-self: right;
+}
+
+div.task span.mdi-delete:hover,
+div.task span.mdi-chevron-down:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+div.task span.mdi-clock {
+    font-size: 1.1em;
+    margin-right: 8px;
+}
+
+/* -- */
+
+div.task.urgent {
+    border-left: 20px solid #8b0000;
+}
+
+div.task.normal {
+    border-left: 20px solid #f57c00;
+}
+
+div.task.optional {
+    border-left: 20px solid #1b5e20;
+}
+
+/* -- */
+
+div.due-date {
+    text-align: center;
+}

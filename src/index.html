@@ -10,9 +10,9 @@
     <nav>
         <h2><span class="mdi mdi-clipboard-text"></span>My projects</h2>
         <div class="project-menu">
-            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
-            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
-            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Project</button>
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>First project</button>
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Second project</button>
+            <button type="button"><span class="mdi mdi-clipboard-text-play"></span>Weekend tasks</button>
         </div>
         <button class="new-project-btn"><span class="mdi mdi-clipboard-plus"></span>New Project</button>
     </nav>
@@ -22,11 +22,30 @@
             <h3><span class="mdi mdi-clipboard-check"></span>My project name.</h3>
         </div>
         <div class="current-project-container">
-            <div class="task-container">
-                <div class="task">This is a task</div>
-            </div>
             <div class="add-task-container">
-                <button>Add task</button>
+                <button type="button"><span class="mdi mdi-pen"></span>Add task</button>
+            </div>
+            <div class="task-container">
+
+                <div class="task urgent">
+                    <p>Task title</p>
+                    <span class="mdi mdi-chevron-down"></span>
+                    <div class="due-date"><p><span class="mdi mdi-clock"></span>Deadline</p><p>29 / 03 / 2026</p></div>
+                    <span class="mdi mdi-delete"></span>
+                    
+                    <div class="task-desc">This is a description of the first task withint this speckfic
+                        project, other tasks may also have a description within any of the available or created
+                        projects.
+                    </div>
+
+                </div>
+
+                <div class="task normal">
+                    <p>Very long task title</p>
+                    <span class="mdi mdi-chevron-down"></span>
+                    <div class="due-date"><p><span class="mdi mdi-clock"></span>Deadline</p><p>29 / 03 / 2026</p></div>
+                    <span class="mdi mdi-delete"></span>
+                </div>
             </div>
         </div>
     </section>
