@@ -13,7 +13,7 @@
 
 body {
     /* idk */
-    background-image: url("./images/bg.JPG");
+    background-image: url("../images/bg.JPG");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

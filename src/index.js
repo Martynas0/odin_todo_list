@@ -1,3 +1,3 @@
-import "./style.css";
-import "./project.css";
-import "./task.css";
+import "./styles/style.css";
+import "./styles/project.css";
+import "./styles/task.css";
