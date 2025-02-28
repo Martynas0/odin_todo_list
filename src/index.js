@@ -1,5 +1,4 @@
-
-
-import {projects} from "./displayContent";
+import "./initialState";
+import "./gui";
 
 

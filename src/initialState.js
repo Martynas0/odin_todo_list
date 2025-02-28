@@ -25,7 +25,6 @@ import {newTask} from "./task";
 
     projects.currentProject(0);
     
-    return console.log("Initial load complete...");
+    return console.log("Initial data load complete...");
 })();
 
-export {projects, newProject, newTask};

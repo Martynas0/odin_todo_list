@@ -2,15 +2,16 @@ import "./styles/style.css";
 import "./styles/task.css";
 import "./styles/project.css";
 
-import {projects, newProject, newTask} from "./initialState";
+import {projects, newProject} from "./project";
+import {newTask} from "./task";
 
 
 export const display = (function(){
     
     const currentProjectTasks = document.querySelector("div.task-container");
     const currentProjectTitle = document.querySelector(".current-project-title > h3");
-    const menuItems = document.querySelectorAll("div.project-menu > button[type='button']");
     const menu = document.querySelector("div.project-menu");
+    const myProjects = document.querySelector("nav");
 
     const render = () => {
         renderMenu();
@@ -33,7 +34,7 @@ export const display = (function(){
             return menuItem;
         })
         
-        menuItems.forEach(item => item.remove());
+        while (menu.firstChild) menu.removeChild(menu.lastChild);
         nodeList.forEach(item => menu.appendChild(item));
 
     }
@@ -92,9 +93,16 @@ export const display = (function(){
         if (urgency === 3) return "urgent";
     }
 
-    projects.currentProject(1);
+    const handleNavigation = (e) => {
+        if (e.target.dataset.index) {
+            projects.currentProject(e.target.dataset.index);
+            render();
+        }
+    }
+
+    // -------------
     render(); // Render upon initial page load
+    myProjects.addEventListener("click", handleNavigation);
 
 })();
 
-export {projects};
