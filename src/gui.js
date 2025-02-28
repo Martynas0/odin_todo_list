@@ -102,11 +102,13 @@ export const display = (function(){
     const handleNavigation = (e) => {
         if (e.target.dataset.index) {
             projects.currentProject(e.target.dataset.index);
+            projects.getData()[projects.currentProject()].getTasks().forEach(item => item.closeTask());
             render();
         }
     }
 
     const handleProjectTab = (e) => {
+        // Expand / Close tasks
         if (e.target.className.includes("mdi-chevron-down")) { 
             projects.getData()[projects.currentProject()].getTasks().forEach(item => item.closeTask());
             projects.getData()[projects.currentProject()].getTasks()[e.target.parentNode.dataset.index].expandToggle();
