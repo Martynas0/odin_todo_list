@@ -1,0 +1,42 @@
+
+const projects = (function(){
+    
+    const data = []
+    let currentProjectIndex;
+
+    const currentProject = (value) => {
+        if (value || value === 0) {
+            currentProjectIndex = value;
+        }
+        return currentProjectIndex;
+    }
+
+    const getData = () => {
+        return data;
+    }
+
+    const addProject = (project) => {
+        data.push(project);
+    }
+
+    return {getData, addProject, currentProject};
+})();
+
+
+const newProject = (name) => {  
+
+    const tasks = [];
+
+    const getTasks = () => {
+        return tasks;
+    }
+
+    const addTask = (task) => {
+        tasks.push(task);
+    }
+
+    return {name, addTask, getTasks}
+};
+
+export {projects, newProject};
+
