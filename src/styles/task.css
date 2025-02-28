@@ -37,7 +37,8 @@ div.task span.mdi-delete {
 }
 
 div.task span.mdi-delete:hover,
-div.task span.mdi-chevron-down:hover {
+div.task span.mdi-chevron-down:hover,
+div.task span.mdi-chevron-up:hover {
     opacity: 0.6;
     cursor: pointer;
 }

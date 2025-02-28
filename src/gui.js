@@ -12,6 +12,7 @@ export const display = (function(){
     const currentProjectTitle = document.querySelector(".current-project-title > h3");
     const menu = document.querySelector("div.project-menu");
     const myProjects = document.querySelector("nav");
+    const projectTab = document.querySelector(".current-project-container");
 
     const render = () => {
         renderMenu();
@@ -50,7 +51,7 @@ export const display = (function(){
         currentProjectTitle.appendChild(text);
 
         // Update tasks
-        const nodeList = tasks.map((item) => {
+        const nodeList = tasks.map((item, index) => {
             const container = document.createElement("div");
             const title = document.createElement("p");
             const expandIcon = document.createElement("span");
@@ -65,11 +66,11 @@ export const display = (function(){
             const desc = document.createElement("div");
 
             container.classList.add("task", taskBorderColor(item.urgency));
-            expandIcon.classList.add("mdi", "mdi-chevron-down");
+            expandIcon.classList.add("mdi", item.isOpen() ? "mdi-chevron-up" : "mdi-chevron-down");
             dueDate.classList.add("due-date");
             dueDateTitleIcon.classList.add("mdi", "mdi-clock");
             deleteIcon.classList.add("mdi", "mdi-delete");
-            desc.classList.add("task-desc");
+            desc.classList.add("task-desc", showDesc(item.isOpen()) );
 
             title.textContent = item.title;
             dueDateDate.textContent = item.deadline;
@@ -78,6 +79,7 @@ export const display = (function(){
             dueDateTitle.append(dueDateTitleIcon, dueDateTitleText);
             dueDate.append(dueDateTitle, dueDateDate);
 
+            container.dataset.index = index;
             container.append(title, expandIcon, dueDate, deleteIcon, desc);
             
             return container;
@@ -85,6 +87,10 @@ export const display = (function(){
         
         while (currentProjectTasks.firstChild) currentProjectTasks.removeChild(currentProjectTasks.lastChild);
         nodeList.forEach(item => currentProjectTasks.appendChild(item));
+    }
+
+    const showDesc = (open) => {
+        if (open) return "task-desc-show";
     }
 
     const taskBorderColor = (urgency) => {
@@ -100,9 +106,24 @@ export const display = (function(){
         }
     }
 
+    const handleProjectTab = (e) => {
+        if (e.target.className.includes("mdi-chevron-down")) { 
+            projects.getData()[projects.currentProject()].getTasks().forEach(item => item.closeTask());
+            projects.getData()[projects.currentProject()].getTasks()[e.target.parentNode.dataset.index].expandToggle();
+            render();
+            console.log(e.target.parentNode.dataset.index);
+        }
+        else if (e.target.className.includes("mdi-chevron-up")) {
+            projects.getData()[projects.currentProject()].getTasks()[e.target.parentNode.dataset.index].expandToggle();
+            render();
+        }
+        
+    }
+
     // -------------
     render(); // Render upon initial page load
     myProjects.addEventListener("click", handleNavigation);
+    projectTab.addEventListener("click", handleProjectTab);
 
 })();
 
