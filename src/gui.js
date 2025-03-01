@@ -12,6 +12,7 @@ export const display = (function(){
     const currentProjectTitle = document.querySelector(".current-project-title > h3");
     const menu = document.querySelector("div.project-menu");
     const myProjects = document.querySelector("nav");
+    const newProjectForm = document.querySelector("form.add-project");
     const projectTab = document.querySelector(".current-project-container");
 
     const render = () => {
@@ -105,6 +106,10 @@ export const display = (function(){
             projects.getCurrentProject().getTasks().forEach(item => item.closeTask());
             render();
         }
+        else if (e.target.className === "new-project-btn") {
+            newProjectForm.classList.toggle("hide");
+        }
+        
     }
 
     const handleProjectTab = (e) => {
@@ -122,10 +127,21 @@ export const display = (function(){
         
     }
 
+    const addNewProject = (e) => {
+        e.preventDefault();
+        console.log(e.target[1].value)
+        projects.addProject(newProject(e.target[1].value));
+        newProjectForm.classList.toggle("hide");
+        projects.currentProject(projects.getData().length - 1);
+        render();
+    }
+
     // -------------
     render(); // Render upon initial page load
     myProjects.addEventListener("click", handleNavigation);
     projectTab.addEventListener("click", handleProjectTab);
+    newProjectForm.addEventListener("submit", addNewProject);
+    
 
 })();
 
