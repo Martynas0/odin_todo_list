@@ -43,24 +43,24 @@
         <div class="modal-wrapper">
             <h2><span class="mdi mdi-pen"></span>Add a new task</h2>
             <span class="mdi mdi-window-close"></span>
-            <form action="" method="dialog">
+            <form id="new-task-form" action="" method="dialog">
                 <fieldset>
                     <legend>Urgency</legend>
-                    <label for="urgent"><input name="urgency" id="urgent" value="urgent" type="radio"> Urgent</label>
-                    <label for="normal"><input name="urgency" id="normal" value="normal" type="radio"> Normal</label>
-                    <label for="optional"><input name="urgency" id="optional" value="optional" type="radio"> Optional</label>            
+                    <label for="urgent"><input name="urgency" id="urgent" value="3" type="radio"> Urgent</label>
+                    <label for="normal"><input name="urgency" id="normal" value="2" type="radio"> Normal</label>
+                    <label for="optional"><input name="urgency" id="optional" value="1" type="radio" checked> Optional</label>            
                 </fieldset>
                 <div class="form-control">
                     <label for="title">Task title</label>
-                    <input type="text" name="title" id="title" autofocus>
+                    <input type="text" name="title" id="title" autofocus required>
                 </div>
                 <div class="form-control">
                     <label for="deadline">Deadline</label>
-                    <input type="date" name="deadline" id="deadline">
+                    <input type="date" name="deadline" id="deadline" required>
                 </div>
                 <div class="form-control">
                     <label for="desc">Description</label>
-                    <textarea name="desc" id="desc" rows="4" cols="30"></textarea>
+                    <textarea name="desc" id="desc" rows="4" cols="30" required></textarea>
                 </div>
                 <button class="add-new-task-btn" type="submit">Add</button>
         </form>

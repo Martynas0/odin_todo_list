@@ -15,6 +15,7 @@ export const display = (function(){
     const myProjects = document.querySelector("nav");
     const newProjectForm = document.querySelector("form.add-project");
     const newTaskModal = document.querySelector("dialog");
+    const newTaskForm = document.querySelector("#new-task-form");
     const projectTab = document.querySelector(".current-project-container");
 
     const render = () => {
@@ -137,6 +138,8 @@ export const display = (function(){
         }
         else if (e.target.className === "add-task") {
             newTaskModal.showModal();
+            newTaskForm.reset();
+            
         }
         
     }
@@ -150,11 +153,19 @@ export const display = (function(){
         render();
     }
 
+    const handleNewTask = (e) => {
+        const urgency = [e.target[1], e.target[2], e.target[3]].find(item => item.checked);
+        projects.getCurrentProject().addTask(newTask(Number(urgency.value), e.target[4].value, e.target[6].value, e.target[5].value))
+        render();
+        
+    }
+
     // -------------
     render(); // Render upon initial page load
     myProjects.addEventListener("click", handleNavigation);
     projectTab.addEventListener("click", handleProjectTab);
     newProjectForm.addEventListener("submit", handleNewProject);
+    newTaskForm.addEventListener("submit", handleNewTask);
 
     
     
