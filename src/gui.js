@@ -42,8 +42,8 @@ export const display = (function(){
 
     const renderProject = () => {
 
-        const title = projects.getData()[projects.currentProject()].name;
-        const tasks = projects.getData()[projects.currentProject()].getTasks();
+        const title = projects.getCurrentProject().name;
+        const tasks = projects.getCurrentProject().getTasks();
 
         // Update title
         const text = document.createTextNode(title);
@@ -102,7 +102,7 @@ export const display = (function(){
     const handleNavigation = (e) => {
         if (e.target.dataset.index) {
             projects.currentProject(e.target.dataset.index);
-            projects.getData()[projects.currentProject()].getTasks().forEach(item => item.closeTask());
+            projects.getCurrentProject().getTasks().forEach(item => item.closeTask());
             render();
         }
     }
@@ -110,13 +110,13 @@ export const display = (function(){
     const handleProjectTab = (e) => {
         // Expand / Close tasks
         if (e.target.className.includes("mdi-chevron-down")) { 
-            projects.getData()[projects.currentProject()].getTasks().forEach(item => item.closeTask());
-            projects.getData()[projects.currentProject()].getTasks()[e.target.parentNode.dataset.index].expandToggle();
+            projects.getCurrentProject().getTasks().forEach(item => item.closeTask());
+            projects.getCurrentProject().getTasks()[e.target.parentNode.dataset.index].expandToggle();
             render();
             console.log(e.target.parentNode.dataset.index);
         }
         else if (e.target.className.includes("mdi-chevron-up")) {
-            projects.getData()[projects.currentProject()].getTasks()[e.target.parentNode.dataset.index].expandToggle();
+            projects.getCurrentProject().getTasks()[e.target.parentNode.dataset.index].expandToggle();
             render();
         }
         

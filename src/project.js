@@ -11,6 +11,10 @@ const projects = (function(){
         return currentProjectIndex;
     }
 
+    const getCurrentProject = () => {
+        return data[currentProjectIndex];
+    }
+
     const getData = () => {
         return data;
     }
@@ -19,7 +23,7 @@ const projects = (function(){
         data.push(project);
     }
 
-    return {getData, addProject, currentProject};
+    return {getData, addProject, currentProject, getCurrentProject};
 })();
 
 
