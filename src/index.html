@@ -29,7 +29,7 @@
         </div>
         <div class="current-project-container">
             <div class="add-task-container">
-                <button type="button"><span class="mdi mdi-pen"></span>Add task</button>
+                <button class="add-task" type="button"><span class="mdi mdi-pen"></span>Add task</button>
             </div>
             <div class="task-container">
 
@@ -39,11 +39,35 @@
         </div>
     </section>
 
-    <!-- <dialog>
-        <form action="" method="dialog">
-
+    <dialog>
+        <div class="modal-wrapper">
+            <h2><span class="mdi mdi-pen"></span>Add a new task</h2>
+            <span class="mdi mdi-window-close"></span>
+            <form action="" method="dialog">
+                <fieldset>
+                    <legend>Urgency</legend>
+                    <label for="urgent"><input name="urgency" id="urgent" value="urgent" type="radio"> Urgent</label>
+                    <label for="normal"><input name="urgency" id="normal" value="normal" type="radio"> Normal</label>
+                    <label for="optional"><input name="urgency" id="optional" value="optional" type="radio"> Optional</label>            
+                </fieldset>
+                <div class="form-control">
+                    <label for="title">Task title</label>
+                    <input type="text" name="title" id="title" autofocus>
+                </div>
+                <div class="form-control">
+                    <label for="deadline">Deadline</label>
+                    <input type="date" name="deadline" id="deadline">
+                </div>
+                <div class="form-control">
+                    <label for="desc">Description</label>
+                    <textarea name="desc" id="desc" rows="4" cols="30"></textarea>
+                </div>
+                <button class="add-new-task-btn" type="submit">Add</button>
         </form>
-    </dialog> -->
+        </div>
+    </dialog>
+
+
 
 </body>
 </html>

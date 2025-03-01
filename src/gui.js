@@ -1,6 +1,7 @@
 import "./styles/style.css";
 import "./styles/task.css";
 import "./styles/project.css";
+import "./styles/new-task.css";
 
 import {projects, newProject} from "./project";
 import {newTask} from "./task";
@@ -13,6 +14,7 @@ export const display = (function(){
     const menu = document.querySelector("div.project-menu");
     const myProjects = document.querySelector("nav");
     const newProjectForm = document.querySelector("form.add-project");
+    const newTaskModal = document.querySelector("dialog");
     const projectTab = document.querySelector(".current-project-container");
 
     const render = () => {
@@ -116,6 +118,7 @@ export const display = (function(){
         }
         else if (e.target.className === "new-project-btn") {
             newProjectForm.classList.toggle("hide");
+            newProjectForm.reset();
         }
         
     }
@@ -132,10 +135,13 @@ export const display = (function(){
             projects.getCurrentProject().getTasks()[e.target.parentNode.dataset.index].expandToggle();
             render();
         }
+        else if (e.target.className === "add-task") {
+            newTaskModal.showModal();
+        }
         
     }
 
-    const addNewProject = (e) => {
+    const handleNewProject = (e) => {
         e.preventDefault();
         console.log(e.target[1].value)
         projects.addProject(newProject(e.target[1].value));
@@ -148,7 +154,9 @@ export const display = (function(){
     render(); // Render upon initial page load
     myProjects.addEventListener("click", handleNavigation);
     projectTab.addEventListener("click", handleProjectTab);
-    newProjectForm.addEventListener("submit", addNewProject);
+    newProjectForm.addEventListener("submit", handleNewProject);
+
+    
     
 
 })();
