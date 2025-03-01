@@ -63,3 +63,9 @@ div.task-container {
     flex-direction: column;
     row-gap: 20px;
 }
+
+p.no-tasks-message {
+    padding: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}

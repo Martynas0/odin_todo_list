@@ -87,7 +87,15 @@ export const display = (function(){
         })
         
         while (currentProjectTasks.firstChild) currentProjectTasks.removeChild(currentProjectTasks.lastChild);
+        if (nodeList.length < 1) showEmptyMessage();
         nodeList.forEach(item => currentProjectTasks.appendChild(item));
+    }
+
+    const showEmptyMessage = () => {
+        const message = document.createElement("p");
+        message.classList.add("no-tasks-message");
+        message.textContent = "Your project appears to not have any tasks, you may add tasks using the above button.";
+        currentProjectTasks.appendChild(message);
     }
 
     const showDesc = (open) => {
