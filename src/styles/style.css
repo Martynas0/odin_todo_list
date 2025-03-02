@@ -145,4 +145,10 @@ form.add-project > input[type="text"]:hover {
     outline: 4px solid #3e3052;
 }
 
+p.empty-menu-message {
+    align-self: center;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
 

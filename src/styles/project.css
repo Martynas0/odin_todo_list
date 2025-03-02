@@ -36,8 +36,24 @@ div.current-project-container {
     row-gap: 20px;
 }
 
+div.no-projects-available {
+    display: none;
+    padding: 25px;
+    background-color: #282828;
+    box-shadow: 4px 3px 5px rgb(0, 0, 0);
+    border-radius: 8px;
+}
+
+p.warning-msg {
+    padding: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
 div.add-task-container {
     display: flex;
+    justify-content: space-between;
 }
 
 div.add-task-container > button[type="button"] {
@@ -50,6 +66,10 @@ div.add-task-container > button[type="button"] {
     border-radius: 10px;
     padding: 8px 24px;
     box-shadow: 1px 1px 5px black;
+}
+
+div.add-task-container > button[type="button"].remove-project {
+    background-color: #7b1616;
 }
 
 button[type="button"] > span {
@@ -68,4 +88,7 @@ p.no-tasks-message {
     padding: 25px;
     font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.4;
 }
+
+

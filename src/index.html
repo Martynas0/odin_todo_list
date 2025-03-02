@@ -30,12 +30,17 @@
         <div class="current-project-container">
             <div class="add-task-container">
                 <button class="add-task" type="button"><span class="mdi mdi-pen"></span>Add task</button>
+                <button class="remove-project" type="button"><span class="mdi mdi-clipboard-remove"></span>Remove project</button>
             </div>
             <div class="task-container">
 
                 <!-- Rendered using JS -->
 
             </div>
+        </div>
+        <!---Only to be displayed when there are no projects created... toggling the inline display value of this saves me a literal SHITLOAD of js code :)-->
+        <div class="no-projects-available">
+            <p class="warning-msg">You currently do not have any projects created, you can create a new one using the 'New Project' button.</p>
         </div>
     </section>
 

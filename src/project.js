@@ -23,7 +23,11 @@ const projects = (function(){
         data.push(project);
     }
 
-    return {getData, addProject, currentProject, getCurrentProject};
+    const removeCurrentProject = () => {
+        data.splice(currentProjectIndex, 1);
+    }
+
+    return {getData, addProject, currentProject, getCurrentProject, removeCurrentProject};
 })();
 
 

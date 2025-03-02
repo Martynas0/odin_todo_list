@@ -17,6 +17,7 @@ export const display = (function(){
     const newTaskModal = document.querySelector("dialog");
     const newTaskForm = document.querySelector("#new-task-form");
     const projectTab = document.querySelector(".current-project-container");
+    const noProjectsWarning = document.querySelector(".no-projects-available");
 
 
     const render = () => {
@@ -25,7 +26,7 @@ export const display = (function(){
     }
 
     const renderMenu = () => {
-        
+
         const nodeList = projects.getData().map((item, index) => {
             const menuItem = document.createElement("button");
             const icon = document.createElement("span");
@@ -41,11 +42,26 @@ export const display = (function(){
         })
         
         while (menu.firstChild) menu.removeChild(menu.lastChild);
+        if (!nodeList.length) showEmptyMenuMessage();
         nodeList.forEach(item => menu.appendChild(item));
 
     }
 
     const renderProject = () => {
+
+        // Display warning message div instead of current project div if no projects are available
+        if (!projects.getData().length) {
+            const text = document.createTextNode("No projects available...");
+            currentProjectTitle.removeChild(currentProjectTitle.lastChild);
+            currentProjectTitle.appendChild(text);
+
+            projectTab.style.display = "none";
+            noProjectsWarning.style.display = "block";
+            return;
+        }
+        // Hide warning message div and display current project div again if projects have been added afterwards...
+        projectTab.style.display = "flex";
+        noProjectsWarning.style.display = "none";
 
         const title = projects.getCurrentProject().name;
         const tasks = projects.getCurrentProject().getTasks();
@@ -91,15 +107,22 @@ export const display = (function(){
         })
         
         while (currentProjectTasks.firstChild) currentProjectTasks.removeChild(currentProjectTasks.lastChild);
-        if (nodeList.length < 1) showEmptyMessage();
+        if (!nodeList.length) showEmptyProjectMessage();
         nodeList.forEach(item => currentProjectTasks.appendChild(item));
     }
 
-    const showEmptyMessage = () => {
+    const showEmptyProjectMessage = () => {
         const message = document.createElement("p");
         message.classList.add("no-tasks-message");
         message.textContent = "Your project appears to not have any tasks, you may add tasks using the above button.";
         currentProjectTasks.appendChild(message);
+    }
+
+    const showEmptyMenuMessage = () => {
+        const message = document.createElement("p");
+        message.classList.add("empty-menu-message");
+        message.textContent = "Nothing !";
+        menu.appendChild(message);
     }
 
     const showDesc = (open) => {
@@ -144,8 +167,12 @@ export const display = (function(){
         }
         else if (e.target.className === "add-task") {
             newTaskModal.showModal();
-            newTaskForm.reset();
-            
+            newTaskForm.reset();    
+        }
+        else if (e.target.className === "remove-project") {
+            projects.removeCurrentProject();
+            projects.currentProject(projects.getData().length - 1);
+            render();
         }
         
     }
