@@ -1,5 +1,6 @@
 export const newTask = (urgency, title, desc, deadline) => {
 
+    
     let open = false;
 
     const isOpen = () => {
@@ -19,6 +20,18 @@ export const newTask = (urgency, title, desc, deadline) => {
         }
     }
 
+    const setProps = (u, t, d, dl) => {
+        urgency = u;
+        title = t;
+        desc = d;
+        deadline = dl;
+        console.log(urgency, title);
+    }
 
-    return {urgency, title, desc, deadline, expandToggle, isOpen, closeTask};
+    const getProps = () => {
+        return {urgency, title, desc, deadline};
+    }
+
+
+    return {urgency, title, desc, deadline, expandToggle, isOpen, closeTask, setProps, getProps};
 }

@@ -16,12 +16,23 @@ div.task {
 .task > div.task-desc {
     display: none;
     grid-column: 1 / -1;
-    padding: 15px;
+    padding: 15px 0 15px 15px;
     opacity: 0.9;
 }
 
 .task > div.task-desc-show {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    gap: 15px;
+}
+
+div.task-desc-show > span.mdi-pencil-circle {
+    font-size: 2.5rem;
+}
+
+div.task-desc-show > span.mdi-pencil-circle:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 div.task > p:first-child {

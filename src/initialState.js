@@ -9,12 +9,12 @@ import {newTask} from "./task";
                           urgency: 1,
                           title: "Initial task",
                           desc: "This is an initial task to be loaded upon the webpage rendering, if you are seeing this - mission success !",
-                          deadline: "12 / 03 / 2025"},
+                          deadline: "2025-03-12"},
                          {
                             urgency: 3,
                             title: "Initial 2nd task",
                             desc: "This is an initial second task to be loaded upon the webpage rendering, if you are seeing this - Hooray !",
-                            deadline: "27 / 03 / 2025"}]
+                            deadline: "2025-03-27"}]
 
     projects.addProject(newProject(initialProjectNames[0]));
     projects.addProject(newProject(initialProjectNames[1]));

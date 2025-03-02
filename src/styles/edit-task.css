@@ -1,0 +1,131 @@
+dialog#edit-task-modal {
+    justify-self: center;
+    align-self: center;
+    background-color: #282828;
+    box-shadow: 8px 6px 10px rgb(0, 0, 0);
+    padding: 30px;
+    border: none;
+    border-radius: 8px;
+    color: inherit;
+}
+
+dialog#edit-task-modal::backdrop {
+    background-color: black;
+    opacity: 0.8;
+} 
+
+/* Apparently dialog cannot have display: grid ??? couldnt find anything on this but it will not close if it does... */
+div.modal-wrapper {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: min-content min-content;
+    gap: 15px;
+}
+
+
+
+div.modal-wrapper > h2 {
+    font-size: 2.3rem;
+}
+
+div.modal-wrapper > h2 > span {
+    font-size: 3.2rem;
+    margin-right: 15px;
+}
+
+span.mdi-window-close {
+    font-size: 2.8rem;
+}
+
+span.mdi-window-close:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+div.modal-wrapper > form {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    gap: 10px;
+}
+
+div.modal-wrapper > form > fieldset {
+    grid-column: 1 / -1;
+    border: none;
+    padding: 5px 0;
+
+    display: flex;
+    gap: 20px;
+}
+
+fieldset > legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    
+}
+
+fieldset > label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+div.form-control:last-of-type {
+    grid-column: 1 / -1;
+}
+
+form > button.edit-task-btn {
+    grid-column: 1 / -1;
+
+    margin-top: 10px;
+    justify-self: center;
+    background-color: #3e3052;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 24px;
+    box-shadow: 3px 2px 5px black;
+}
+
+div.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+div.form-control label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+div.form-control input {
+    padding: 6px 12px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 2px 5px black;
+}
+
+div.form-control input:focus,
+div.form-control input:hover,
+div.form-control textarea:focus,
+div.form-control textarea:hover {
+    outline: 3px solid #3e3052;
+}
+
+div.form-control textarea {
+    padding: 6px 12px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 2px 5px black;
+    resize: none;
+}
+
