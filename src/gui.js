@@ -138,12 +138,12 @@ export const display = (function(){
     }
 
     const handleNavigation = (e) => {
-        if (e.target.dataset.index) {
-            projects.currentProject(e.target.dataset.index);
+        if (e.target.dataset.index || e.target.parentNode.dataset.index) {
+            projects.currentProject(e.target.dataset.index ? e.target.dataset.index : e.target.parentNode.dataset.index);
             projects.getCurrentProject().getTasks().forEach(item => item.closeTask());
             render();
         }
-        else if (e.target.className === "new-project-btn") {
+        else if (e.target.className === "new-project-btn" || e.target.parentNode.className === "new-project-btn") {
             newProjectForm.classList.toggle("hide");
             newProjectForm.reset();
         }
@@ -167,11 +167,11 @@ export const display = (function(){
             projects.getCurrentProject().removeTask(i);
             render();
         }
-        else if (e.target.className === "add-task") {
+        else if (e.target.className === "add-task" || e.target.parentNode.className === "add-task") {
             newTaskModal.showModal();
             newTaskForm.reset();    
         }
-        else if (e.target.className === "remove-project") {
+        else if (e.target.className === "remove-project" || e.target.parentNode.className === "remove-project") {
             if (projects.getCurrentProject().getTasks().length) return deleteProjectModal.showModal();
             projects.removeCurrentProject();
             projects.currentProject(projects.getData().length - 1);
@@ -196,8 +196,8 @@ export const display = (function(){
     }
 
     const handleDeleteProjectModal = (e) => {
-        if (e.target.dataset.action === "cancel") deleteProjectModal.close();
-        if (e.target.dataset.action === "delete") {
+        if (e.target.dataset.action === "cancel" || e.target.parentNode.dataset.action === "cancel") deleteProjectModal.close();
+        if (e.target.dataset.action === "delete" || e.target.parentNode.dataset.action === "delete") {
             deleteProjectModal.close();
             projects.removeCurrentProject();
             projects.currentProject(projects.getData().length - 1);
