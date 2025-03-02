@@ -1,0 +1,62 @@
+dialog#delete-project-modal {
+    place-self: center;
+    background-color: #282828;
+    box-shadow: 8px 6px 10px rgb(0, 0, 0);
+    padding: 30px;
+    border: none;
+    border-radius: 8px;
+    color: inherit;
+    width: max(350px, 32%);
+}
+
+dialog#delete-project-modal::backdrop {
+    background-color: black;
+    opacity: 0.8;
+}
+
+div.delete-project-warning {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    gap: 20px;
+}
+
+div.delete-project-warning > span.mdi-alert-box {
+    grid-column: 1 / -1;
+    font-size: 5rem;
+    color: #c74f0e;
+    place-self: center;
+}
+
+div.delete-project-warning > h3 {
+    grid-column: 1 / -1;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+div.delete-project-warning > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #c74f0e;
+}
+
+div.delete-project-warning > button[type="button"] {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    padding: 4px 8px;
+    box-shadow: 3px 2px 5px black;
+}
+
+div.delete-project-warning > button[type="button"]:first-of-type {
+    background-color: #7b1616;
+}
+
+div.delete-project-warning > button[type="button"]:last-of-type {
+    background-color: #244a27;
+}

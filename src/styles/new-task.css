@@ -1,4 +1,4 @@
-dialog {
+dialog#new-task-modal {
     justify-self: center;
     align-self: center;
     background-color: #282828;
@@ -9,12 +9,12 @@ dialog {
     color: inherit;
 }
 
-dialog::backdrop {
+dialog#new-task-modal::backdrop {
     background-color: black;
     opacity: 0.8;
 } 
 
-/* Apparently dialog cannot have display: grid ??? couldnt find anything on this but it sure seems that way... */
+/* Apparently dialog cannot have display: grid ??? couldnt find anything on this but it will not close if it does... */
 div.modal-wrapper {
     display: grid;
     grid-template-columns: 1fr min-content;

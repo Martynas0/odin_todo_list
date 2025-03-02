@@ -2,6 +2,7 @@ import "./styles/style.css";
 import "./styles/task.css";
 import "./styles/project.css";
 import "./styles/new-task.css";
+import "./styles/delete-project-modal.css";
 
 import {projects, newProject} from "./project";
 import {newTask} from "./task";
@@ -14,10 +15,11 @@ export const display = (function(){
     const menu = document.querySelector("div.project-menu");
     const myProjects = document.querySelector("nav");
     const newProjectForm = document.querySelector("form.add-project");
-    const newTaskModal = document.querySelector("dialog");
+    const newTaskModal = document.querySelector("dialog#new-task-modal");
     const newTaskForm = document.querySelector("#new-task-form");
     const projectTab = document.querySelector(".current-project-container");
     const noProjectsWarning = document.querySelector(".no-projects-available");
+    const deleteProjectModal = document.querySelector("dialog#delete-project-modal");
 
 
     const render = () => {
@@ -170,6 +172,7 @@ export const display = (function(){
             newTaskForm.reset();    
         }
         else if (e.target.className === "remove-project") {
+            if (projects.getCurrentProject().getTasks().length) return deleteProjectModal.showModal();
             projects.removeCurrentProject();
             projects.currentProject(projects.getData().length - 1);
             render();
@@ -189,8 +192,17 @@ export const display = (function(){
     const handleNewTask = (e) => {
         const urgency = [e.target[1], e.target[2], e.target[3]].find(item => item.checked);
         projects.getCurrentProject().addTask(newTask(Number(urgency.value), e.target[4].value, e.target[6].value, e.target[5].value))
-        render();
-        
+        render();  
+    }
+
+    const handleDeleteProjectModal = (e) => {
+        if (e.target.dataset.action === "cancel") deleteProjectModal.close();
+        if (e.target.dataset.action === "delete") {
+            deleteProjectModal.close();
+            projects.removeCurrentProject();
+            projects.currentProject(projects.getData().length - 1);
+            render();
+        }
     }
 
     // -------------
@@ -199,6 +211,7 @@ export const display = (function(){
     projectTab.addEventListener("click", handleProjectTab);
     newProjectForm.addEventListener("submit", handleNewProject);
     newTaskForm.addEventListener("submit", handleNewTask);
+    deleteProjectModal.addEventListener("click", handleDeleteProjectModal);
 
     newTaskModal.addEventListener("click", (e) => {
         if (e.target.className.includes("mdi-window-close")) newTaskModal.close();

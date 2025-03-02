@@ -44,7 +44,7 @@
         </div>
     </section>
 
-    <dialog>
+    <dialog id="new-task-modal">
         <div class="modal-wrapper">
             <h2><span class="mdi mdi-pen"></span>Add a new task</h2>
             <span class="mdi mdi-window-close"></span>
@@ -72,6 +72,15 @@
         </div>
     </dialog>
 
+    <dialog id="delete-project-modal">
+        <div class="delete-project-warning">
+            <span class="mdi mdi-alert-box"></span>
+            <h3>Are you sure you want to remove this project?</h3>
+            <p>Your project still contains outstanding tasks.</p>
+            <button data-action="delete" type="button"><span class="mdi mdi-clipboard-remove"></span> Remove</button>
+            <button data-action="cancel" type="button"><span class="mdi mdi-emoticon-happy"></span> Cancel</button>
+        </div>
+    </dialog>
 
 
 </body>
