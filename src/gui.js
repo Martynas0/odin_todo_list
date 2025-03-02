@@ -18,6 +18,7 @@ export const display = (function(){
     const newTaskForm = document.querySelector("#new-task-form");
     const projectTab = document.querySelector(".current-project-container");
 
+
     const render = () => {
         renderMenu();
         renderProject();
@@ -136,6 +137,11 @@ export const display = (function(){
             projects.getCurrentProject().getTasks()[e.target.parentNode.dataset.index].expandToggle();
             render();
         }
+        else if (e.target.className.includes("mdi-delete")) {
+            const i = projects.getCurrentProject().getTasks()[e.target.parentNode.dataset.index];
+            projects.getCurrentProject().removeTask(i);
+            render();
+        }
         else if (e.target.className === "add-task") {
             newTaskModal.showModal();
             newTaskForm.reset();
@@ -167,6 +173,9 @@ export const display = (function(){
     newProjectForm.addEventListener("submit", handleNewProject);
     newTaskForm.addEventListener("submit", handleNewTask);
 
+    newTaskModal.addEventListener("click", (e) => {
+        if (e.target.className.includes("mdi-window-close")) newTaskModal.close();
+    })
     
     
 

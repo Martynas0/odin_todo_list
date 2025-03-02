@@ -34,12 +34,16 @@ const newProject = (name) => {
     const getTasks = () => {
         return tasks;
     }
+    
+    const removeTask = (index) => {
+        tasks.splice(index, 1);
+    }
 
     const addTask = (task) => {
         tasks.push(task);
     }
 
-    return {name, addTask, getTasks}
+    return {name, addTask, getTasks, removeTask}
 };
 
 export {projects, newProject};
