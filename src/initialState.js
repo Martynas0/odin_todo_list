@@ -3,25 +3,17 @@ import {newTask} from "./task";
 
 (function(){
     
-    const initialProjectNames = ["Initial project", "2nd initial project"]
+    const initialProjectNames = ["My First Project"];
 
     const initialTasks = [{
                           urgency: 1,
-                          title: "Initial task",
-                          desc: "This is an initial task to be loaded upon the webpage rendering, if you are seeing this - mission success !",
-                          deadline: "2025-03-12"},
-                         {
-                            urgency: 3,
-                            title: "Initial 2nd task",
-                            desc: "This is an initial second task to be loaded upon the webpage rendering, if you are seeing this - Hooray !",
-                            deadline: "2025-03-27"}]
+                          title: "Have fun",
+                          desc: "Try out all the features of this client-side task tracker, create new projects, add desired tasks and edit them as you wish ! You can also delete this default generated task by using the bin icon to your right.",
+                          deadline: "2025-03-12"}]
 
     projects.addProject(newProject(initialProjectNames[0]));
-    projects.addProject(newProject(initialProjectNames[1]));
 
     projects.getData()[0].addTask(newTask(initialTasks[0].urgency, initialTasks[0].title, initialTasks[0].desc, initialTasks[0].deadline));
-    projects.getData()[0].addTask(newTask(initialTasks[1].urgency, initialTasks[1].title, initialTasks[1].desc, initialTasks[1].deadline));
-    projects.getData()[1].addTask(newTask(initialTasks[1].urgency, initialTasks[1].title, initialTasks[1].desc, initialTasks[1].deadline));
 
     projects.currentProject(0);
     
