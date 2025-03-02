@@ -129,7 +129,7 @@ form.add-project > button[type="submit"] {
     box-shadow: 1px 1px 5px black;
 }
 
-form.add-project > input[type="text"] {
+form.add-project > input {
     grid-column: 1 / -1;
     font-family: inherit;
     font-size: 1.2rem;
