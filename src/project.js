@@ -1,3 +1,4 @@
+import {storage} from "./storage";
 
 const projects = (function(){
     
@@ -21,10 +22,12 @@ const projects = (function(){
 
     const addProject = (project) => {
         data.push(project);
+        storage.saveData();
     }
 
     const removeCurrentProject = () => {
         data.splice(currentProjectIndex, 1);
+        storage.saveData();
     }
 
     return {getData, addProject, currentProject, getCurrentProject, removeCurrentProject};
@@ -41,10 +44,12 @@ const newProject = (name) => {
     
     const removeTask = (index) => {
         tasks.splice(index, 1);
+        storage.saveData();
     }
 
     const addTask = (task) => {
         tasks.push(task);
+        storage.saveData();
     }
 
     return {name, addTask, getTasks, removeTask}

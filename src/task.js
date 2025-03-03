@@ -1,3 +1,5 @@
+import {storage} from "./storage";
+
 export const newTask = (urgency, title, desc, deadline) => {
 
     
@@ -25,7 +27,7 @@ export const newTask = (urgency, title, desc, deadline) => {
         title = t;
         desc = d;
         deadline = dl;
-        console.log(urgency, title);
+        storage.saveData();
     }
 
     const getProps = () => {
